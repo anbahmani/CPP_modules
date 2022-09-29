@@ -1,9 +1,8 @@
-NAME		=	megaphone
+NAME		=	brain
 
 CC			=	clang++
 
 SRC_DIR		=	$(shell find srcs -type d)
-INC_DIR		=	$(shell find includes -type d)
 OBJ_DIR		=	obj
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
@@ -16,8 +15,6 @@ OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
-
 #-------------------------------------------------------------------------------
 
 all:	$(NAME)
@@ -26,7 +23,6 @@ show:
 	@echo "SRC :\n$(SRC)"
 	@echo "OBJ :\n$(OBJ)"
 	@echo "CFLAGS :\n$(CFLAGS)"
-	@echo "IFLAGS :\n$(IFLAGS)"
 	@echo "\n-----\n"
 	@echo "Compiling : \n$(CC) $(CFLAGS) $(OBJ) -o $(NAME) "
 
@@ -38,7 +34,7 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o : %.cpp
 	@echo "Compiling $@ ... \c"
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 	@echo "DONE"
 
 re:	fclean all

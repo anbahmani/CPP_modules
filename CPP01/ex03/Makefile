@@ -1,4 +1,4 @@
-NAME		=	megaphone
+NAME		=	weapon
 
 CC			=	clang++
 
