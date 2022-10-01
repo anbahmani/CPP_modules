@@ -53,6 +53,23 @@
 		"__split_buffer": "cpp",
 		"deque": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"array": "cpp",
+		"bit": "cpp",
+		"*.tcc": "cpp",
+		"cmath": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp",
+		"algorithm": "cpp",
+		"functional": "cpp",
+		"iterator": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"optional": "cpp",
+		"random": "cpp",
+		"utility": "cpp",
+		"numbers": "cpp",
+		"ranges": "cpp",
+		"sstream": "cpp"
 	}
 }
