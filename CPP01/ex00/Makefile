@@ -1,6 +1,6 @@
 NAME		=	zombie
 
-CC			=	clang++
+CC			=	g++
 
 SRC_DIR		=	$(shell find srcs -type d)
 INC_DIR		=	$(shell find includes -type d)

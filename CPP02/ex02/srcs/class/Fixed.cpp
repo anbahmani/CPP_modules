@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:33:00 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/01 15:44:18 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:39:40 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,30 @@ Fixed Fixed::operator/(const Fixed&fixed) const {
 	return (Fixed(this->toFloat() / fixed.toFloat()));
 }
 
+Fixed& Fixed::operator++(void) {
+	this->_raw++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int) {
+	Fixed tmp(*this);
+
+    this->_raw++;
+    return (tmp);
+}
+
+Fixed& Fixed::operator--(void) {
+	this->_raw--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int) {
+	Fixed tmp(*this);
+
+    this->_raw--;
+    return (tmp);
+}
+
 int Fixed::getRawBits(void) const{
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_raw);
@@ -109,4 +133,28 @@ int Fixed::toInt(void) const {
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
 	out << fixed.toFloat();
 	return (out);
+}
+
+static Fixed min(Fixed &f1, Fixed &f2) {
+	if (f1 < f2)
+		return (f1);
+	return (f2);
+}
+
+static const Fixed min(const Fixed&f1, const Fixed&f2) {
+	if (f1 < f2)
+		return (f1);
+	return (f2);
+}
+
+static Fixed max(Fixed &f1, Fixed &f2) {
+	if (f1 > f2)
+		return (f1);
+	return (f2);
+}
+
+static const Fixed max(const Fixed&f1, const Fixed&f2){
+	if (f1 > f2)
+		return (f1);
+	return (f2);
 }

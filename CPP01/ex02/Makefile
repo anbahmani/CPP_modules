@@ -1,6 +1,6 @@
 NAME		=	brain
 
-CC			=	clang++
+CC			=	g++
 
 SRC_DIR		=	$(shell find srcs -type d)
 OBJ_DIR		=	obj

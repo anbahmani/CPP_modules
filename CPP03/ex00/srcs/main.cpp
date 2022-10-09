@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:33:12 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/03 10:30:55 by abahmani         ###   ########.fr       */
+/*   Created: 2022/10/05 10:31:36 by abahmani          #+#    #+#             */
+/*   Updated: 2022/10/06 22:42:01 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+int main(void) {
+	ClapTrap a;
+	a.setName("Anis1");
+	ClapTrap b = ClapTrap(a);
+	ClapTrap c = ClapTrap("Anis2");
+
+	b.setAttackDamage(5);
+	b.attack(c.getName());
+	c.takeDamage(b.getAttackDamage());
+	b.attack(c.getName());
+	c.takeDamage(b.getAttackDamage());
+	b.attack(c.getName());
+	c.takeDamage(b.getAttackDamage());
+	c.beRepaired(5);
 }
