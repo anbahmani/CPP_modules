@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:36 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 11:01:53 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:43:41 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,8 @@ int main(void) {
 	ScavTrap b = ScavTrap(a);
 	ScavTrap c = ScavTrap("Anis2");
 
-	b.setAttackDamage(5);
 	b.attack(c.getName());
-	c.takeDamage(b.getAttackDamage());
-	c.beRepaired(5);
-	b.attack(c.getName());
-	c.takeDamage(b.getAttackDamage());
-	b.attack(c.getName());
-	c.takeDamage(b.getAttackDamage());
-	b.attack(c.getName());
-	c.takeDamage(b.getAttackDamage());
-	c.beRepaired(5);
+	c.attack(b.getName());
+	a.guardGate();
+	return (0);
 }

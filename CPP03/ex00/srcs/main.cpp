@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:36 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/13 12:53:36 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:55:22 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void) {
 	a.setName("Anis1");
 	ClapTrap b = ClapTrap(a);
 	ClapTrap c = ClapTrap("Anis2");
+	b = a;
 
 	b.setAttackDamage(5);
 	b.attack(c.getName());

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:32:22 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 10:58:58 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:43:30 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,8 @@ void ScavTrap::attack(const std::string& target) {
 	else if (this->_hit_points == 0)
 		std::cout << "ScavTrap " << this->_name << " can't attack because it does not have hit points.";
 	std::cout << std::endl;
+}
+
+void ScavTrap::guardGate(void) {
+	std::cout << "ScavTrap " << this->_name << " enteres in  Gate keepe mode." << std::endl;
 }

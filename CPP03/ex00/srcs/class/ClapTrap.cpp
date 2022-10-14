@@ -6,26 +6,39 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:39 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/13 12:54:49 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:54:56 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0){
+	std::cout << "Default Claptrap constructor has been called." << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &claptrap) : _name(claptrap._name), _hit_points(claptrap._hit_points), _energy_points(claptrap._energy_points), _attack_damage(claptrap._attack_damage) {
+	std::cout << "Copy Claptrap constructor has been called." << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
+	std::cout << "Claptrap constructor by name has been called." << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap(void) {
+	std::cout << "Claptrap destructor has been called." << std::endl;
 	return ;
+}
+
+ClapTrap& ClapTrap::operator=(ClapTrap &claptrap) {
+	this->_name = claptrap._name;
+	this->_hit_points = claptrap._hit_points;
+	this->_energy_points = claptrap._energy_points;
+	this->_attack_damage = claptrap._attack_damage;
+	std::cout << "Claptrap affectation operator has been called." << std::endl;
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string& target) {

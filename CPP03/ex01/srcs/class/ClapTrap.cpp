@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:39 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 10:47:04 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:50:47 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _energy_po
 ClapTrap::~ClapTrap(void) {
 	std::cout << "Claptrap destructor has been called." << std::endl;
 	return ;
+}
+
+ClapTrap& ClapTrap::operator=(ClapTrap &claptrap) {
+	this->_name = claptrap._name;
+	this->_hit_points = claptrap._hit_points;
+	this->_energy_points = claptrap._energy_points;
+	this->_attack_damage = claptrap._attack_damage;
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string& target) {
