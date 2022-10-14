@@ -6,17 +6,18 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:36 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/13 12:53:36 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:01:53 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
-	ClapTrap a;
+	ScavTrap a;
 	a.setName("Anis1");
-	ClapTrap b = ClapTrap(a);
-	ClapTrap c = ClapTrap("Anis2");
+	ScavTrap b = ScavTrap(a);
+	ScavTrap c = ScavTrap("Anis2");
 
 	b.setAttackDamage(5);
 	b.attack(c.getName());

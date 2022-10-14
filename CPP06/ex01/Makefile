@@ -1,6 +1,6 @@
 NAME		=	megaphone
 
-CC			=	g++
+CC			=	c++
 
 SRC_DIR		=	$(shell find srcs -type d)
 INC_DIR		=	$(shell find includes -type d)
