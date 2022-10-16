@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:54:23 by abahmani          #+#    #+#             */
-/*   Updated: 2022/09/29 13:14:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:37:59 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB{
 	public :
 		HumanB(std::string name);
 		~HumanB(void);
-		void setWeapon(Weapon weapon);
+		void setWeapon(Weapon &weapon);
 		void attack(void);
 };
 

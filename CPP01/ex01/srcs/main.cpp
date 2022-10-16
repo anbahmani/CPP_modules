@@ -6,11 +6,12 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:33:04 by abahmani          #+#    #+#             */
-/*   Updated: 2022/09/29 11:44:50 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:11:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <stdlib.h>
 
 int main (int ac, char **av) {
 	if (ac != 2)

@@ -13,6 +13,7 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(void) {
+	std::cout << "A zombie has been created." << std::endl;
 	return ;
 }
 
@@ -27,4 +28,5 @@ void Zombie::announce(void) {
 
 void Zombie::setName(std::string name) {
 	this->_name = name;
+	std::cout << "A zombie get name " << name <<"." << std::endl;
 }

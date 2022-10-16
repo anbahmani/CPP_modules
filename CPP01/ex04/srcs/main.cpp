@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:10:31 by abahmani          #+#    #+#             */
-/*   Updated: 2022/09/29 15:50:32 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:42:20 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 #include <string>
 
-void	check_empty_string(std::string filename, std::string s1, std::string s2) {
+int	check_empty_string(std::string filename, std::string s1, std::string s2) {
 	int nb_error = 0;
 	
 	if (filename.empty()) {
@@ -29,10 +29,10 @@ void	check_empty_string(std::string filename, std::string s1, std::string s2) {
 		std::cout << "The string s2 is empty." << std::endl;
 		nb_error++;
 	}
-	if (nb_error)
-		exit(1);
+	if (nb_error != 0)
+		return (1);
 	else
-		return;
+		return (0);
 }
 
 int main(int ac, char **av) {
@@ -47,7 +47,7 @@ int main(int ac, char **av) {
 	std::string str;
 	std::ifstream ifs(filename);
 	std::ofstream ofs(filename.append(".replace"));
-	 while (1) {
+	while (1) {
 		getline(ifs, str);
 		size_t pos = str.find(s1);
         while (pos != std::string::npos)
