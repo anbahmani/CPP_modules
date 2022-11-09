@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:09:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/16 18:28:48 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:29:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Weapon::~Weapon(void) {
 	return ;
 }
 
-std::string Weapon::getType(void) {
+std::string Weapon::getType(void) const {
 	return (this->_type);
 }
 
