@@ -1,9 +1,8 @@
 NAME		=	replace
 
-CC			=	g++
+CC			=	c++
 
 SRC_DIR		=	$(shell find srcs -type d)
-INC_DIR		=	$(shell find includes -type d)
 OBJ_DIR		=	obj
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
