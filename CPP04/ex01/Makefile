@@ -1,4 +1,4 @@
-NAME		=	megaphone
+NAME		=	brain
 
 CC			=	c++
 
@@ -14,7 +14,7 @@ OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
 # Compilation flags
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3
 
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 

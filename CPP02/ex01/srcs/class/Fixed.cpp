@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:33:00 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/01 13:56:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/20 17:52:28 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ Fixed::Fixed(void) : _raw(0) {
 	return ;
 }
 
-Fixed::Fixed(const Fixed &fixed) : _raw(fixed._raw){
+Fixed::Fixed(const Fixed &fixed){
 	std::cout << "Copy constructor called" << std::endl;
+	*this = fixed;
 	return ;
 }
 
-Fixed::Fixed(const int raw) : _raw(raw) {
+Fixed::Fixed(const int raw) : _raw(raw << this->_bits) {
 	std::cout << "Int constructor called" << std::endl;
 	return ;
 }
 
-Fixed::Fixed(const float raw) : _raw(raw) {
+Fixed::Fixed(const float raw) : _raw(roundf(raw * (1 << this->_bits))) {
 	std::cout << "Float constructor called" << std::endl;
 	return ;
 }
@@ -37,9 +38,10 @@ Fixed::~Fixed(void) {
 	return ;
 }
 
-Fixed Fixed::operator=(const Fixed& fixed){
-	this->_raw = fixed._raw;
+Fixed &Fixed::operator=(const Fixed& fixed){
 	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &fixed)
+		this->_raw = fixed._raw;
 	return (*this);
 }
 

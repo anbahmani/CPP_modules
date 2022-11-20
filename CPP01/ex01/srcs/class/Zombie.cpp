@@ -13,6 +13,7 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(void) {
+	std::cout << "A zombie has been created." << std::endl;
 	return ;
 }
 

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 14:14:05 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 04:06:22 by abahmani         ###   ########.fr       */
+/*   Created: 2022/10/31 14:35:57 by abahmani          #+#    #+#             */
+/*   Updated: 2022/10/31 15:21:41 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "WrongAnimal.hpp"
 
-class Dog : public virtual Animal {
+class WrongCat : public WrongAnimal {
 	
-	private :
-			Brain *_brain;
-	
-	public :
+		public :
 		
-		Dog(void);
-		Dog(const Dog &dog);
-		virtual ~Dog(void);
-		Dog &operator=(const Dog &dog);
-		virtual void makeSound(void) const;
-		void add_idea(std::string idea);
-		void print_ideas(void);
+		WrongCat(void);
+		WrongCat(const WrongCat &WrongCat);
+		~WrongCat(void);
+		WrongCat &operator=(const WrongCat &cat);
+		void makeSound(void) const;
 };
 
 #endif

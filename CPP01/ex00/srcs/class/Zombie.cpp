@@ -12,7 +12,7 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {
+Zombie::Zombie(void) : _name("") {
 	std::cout << "A zombie has been created." << std::endl;
 	return ;
 }
@@ -20,6 +20,10 @@ Zombie::Zombie(void) {
 Zombie::~Zombie(void) {
 	std::cout << this->_name << " has been deleted." << std::endl;
 	return ;
+}
+
+Zombie::Zombie(std::string name) : _name(name) {
+	std::cout << "The zombie "<< this->_name <<" has been created." << std::endl;
 }
 
 void Zombie::announce(void) {

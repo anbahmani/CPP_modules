@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:10:31 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/09 19:39:31 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:08:56 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,33 +58,29 @@ int main(int ac, char **av) {
 		std::cout << "The file can't be opened." << std::endl;
 		return (1);
 	}
-	std::ofstream ofs(filename.append(".replace").c_str());
-	if (ofs.fail())
-	{
-		std::cout << "The output file can't be created." << std::endl;
-		return (1);
-	}
 	while (getline(ifs, str))
 	{
 		buffer += str;
 		if(!ifs.eof())
 			buffer += '\n';
 	}
-	while (1) {
-		size_t pos =buffer.find(s1);
+	ifs.close();
+	if (!buffer.empty()) {
+		std::ofstream ofs(filename.append(".replace").c_str());
+		if (ofs.fail()){
+			std::cout << "The output file can't be created." << std::endl;
+			return (1);
+		}
+		size_t pos = buffer.find(s1);
         while (pos != std::string::npos)
         {
-			ofs <<buffer.substr(0, pos) << s2;
-			buffer =buffer.substr(pos + s1.length());
-			pos =buffer.find(s1);
+			ofs << buffer.substr(0, pos) << s2;
+			buffer = buffer.substr(pos + s1.length());
+			pos = buffer.find(s1);
         }
-        if (!str.empty())
-            ofs <<buffer;
-        ofs << std::endl;
-        if (ifs.eof())
-            break ;
+        if (!buffer.empty())
+            ofs << buffer;
+		ofs.close();
     }
-	ifs.close();
-	ofs.close();
 	return (0);
 }

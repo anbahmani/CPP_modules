@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:33:00 by abahmani          #+#    #+#             */
-/*   Updated: 2022/09/30 17:51:11 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/20 17:51:55 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ Fixed::Fixed(void) : _raw(0) {
 	return ;
 }
 
-Fixed::Fixed(Fixed &fixed) : _raw(fixed._raw){
+Fixed::Fixed(const Fixed &fixed){
 	std::cout << "Copy constructor called" << std::endl;
+	*this = fixed;
 	return ;
 }
 		
@@ -27,7 +28,7 @@ Fixed::~Fixed(void) {
 	return ;
 }
 
-Fixed Fixed::operator=(const Fixed& fixed){
+Fixed &Fixed::operator=(const Fixed& fixed){
 	this->_raw = fixed._raw;
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);

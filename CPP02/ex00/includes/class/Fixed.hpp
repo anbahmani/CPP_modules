@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:32:26 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/01 13:38:19 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/20 17:54:47 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Fixed {
 
 	public :
 		Fixed(void);
-		Fixed(Fixed &fixed);
+		Fixed(const Fixed &fixed);
 		~Fixed(void);
-		Fixed operator=(const Fixed& fixed);
+		Fixed &operator=(const Fixed& fixed);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
