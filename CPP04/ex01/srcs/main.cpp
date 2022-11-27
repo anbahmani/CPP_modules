@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 06:08:01 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:44:13 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int ac, char **av) {
 		std::cout << "The arg has to be greater than 0." << std::endl;
 		return 0;
 	}
-	
+	/*
 	//Test from ex00
 
 	std::cout << "----------------Test from ex00----------------" << std::endl;
@@ -64,7 +64,7 @@ int main(int ac, char **av) {
 	wrong_animal->makeSound();
 
 	delete wrong_cat;
-	delete wrong_animal;
+	delete wrong_animal;*/
 
 	//Specific test for ex01
 	

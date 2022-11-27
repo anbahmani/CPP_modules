@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:39 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 19:54:56 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:37:46 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void ClapTrap::attack(const std::string& target) {
 		this->_energy_points--;
 	}
 	else if (this->_energy_points == 0)
-		std::cout << "Claptrap " << this->_name << " can't attack because it does not have energy points.";
+		std::cout << "Claptrap " << this->_name << " can't attack because it does not have energy points." << std::endl ;
 	else if (this->_hit_points == 0)
-		std::cout << "Claptrap " << this->_name << " can't attack because it does not have hit points.";
+		std::cout << "Claptrap " << this->_name << " can't attack because it does not have hit points." << std::endl;
 	std::cout << std::endl;
 }
 

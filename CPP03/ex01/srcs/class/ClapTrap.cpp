@@ -6,13 +6,13 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:31:39 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 19:50:47 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:17:45 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name(""), _hit_points(100), _energy_points(50), _attack_damage(20){
+ClapTrap::ClapTrap(void) : _name(""), _hit_points(10), _energy_points(10), _attack_damage(0){
 	std::cout << "Default Claptrap constructor has been called." << std::endl;
 	return ;
 }
@@ -25,6 +25,10 @@ ClapTrap::ClapTrap(const ClapTrap &claptrap) : _name(claptrap._name), _hit_point
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(100), _energy_points(50), _attack_damage(20) {
 	std::cout << "Claptrap constructor by name has been called." << std::endl;
 	return ;
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hit_points, unsigned int energy_points, unsigned int attack_damage) : _name(name, _hit_points(hit_points), _energy_points(energy_points), _attack_damage(attack_damage)) {
+	std::cout << "Claptrap constructor with all attributes has been called." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
