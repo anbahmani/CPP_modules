@@ -6,13 +6,13 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:32:22 by abahmani          #+#    #+#             */
-/*   Updated: 2022/10/14 19:43:30 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:32:00 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap() {
+ScavTrap::ScavTrap(void) : ClapTrap("", 100, 50, 20) {
 	std::cout << "Default ScavTrap constructor has been called." << std::endl;
 	return ;
 }
@@ -22,13 +22,13 @@ ScavTrap::ScavTrap(const ScavTrap &scavTrap) : ClapTrap(scavTrap) {
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
 	std::cout << "ScavTrap constructor by name has been called." << std::endl;
 	return ;
 }
 
 ScavTrap::~ScavTrap(void) {
-	std::cout << "ScavTrap destructor has been called." << std::endl;
+	std::cout << "ScavTrap "<< this->_name << " destructor has been called." << std::endl;
 	return ;
 }
 
