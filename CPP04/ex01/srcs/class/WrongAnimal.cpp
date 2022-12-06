@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:09:44 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/07 12:11:09 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/06 21:00:12 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal &wrongAnimal) : _type(wrongAnimal._ty
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal &wrongAnimal) {
-	this->_type = wrongAnimal._type;
+	if (this != &wrongAnimal)
+		this->_type = wrongAnimal._type;
 	std::cout << "WrongAnimal affectation operator has been called." << std::endl;
 	return (*this);
 }
