@@ -6,17 +6,17 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:14:05 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 04:06:22 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:59:59 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Dog : public virtual Animal {
+class Dog : public virtual AAnimal {
 	
 	private :
 			Brain *_brain;

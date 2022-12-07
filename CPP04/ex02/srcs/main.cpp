@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 06:08:01 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:28:10 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 
 int main(int ac, char **av) {
 
-	// Check args
+	//AAnimal aanimal;
+	
+	
+		// Check args
 
 	if (ac != 2) {
 		std::cout << "The program needs 1 argument only." << std::endl;
@@ -42,29 +45,28 @@ int main(int ac, char **av) {
 
 	std::cout << "----------------Test from ex00----------------" << std::endl;
 	
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "-----------------------Right tests------------------------" << std::endl;
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
-
-	delete i;
+	
 	delete j;
-	delete meta;
+	delete i;
 
-	const Animal* wrong_animal = new Animal();
+	std::cout << "-----------------------Wrong tests------------------------" << std::endl;
+
+	
+	const WrongAnimal* wrong_animal = new WrongAnimal();
 	const WrongAnimal* wrong_cat = new WrongCat();
-	
 	std::cout << wrong_cat->getType() << " " << std::endl;
-	
 	wrong_cat->makeSound();
 	wrong_animal->makeSound();
 
-	delete wrong_cat;
 	delete wrong_animal;
+	delete wrong_cat;	
 
 	//Specific test for ex01
 	
@@ -72,9 +74,9 @@ int main(int ac, char **av) {
 	
 	if (n % 2 == 1)
 		n == 2147483647 ? n-- : n++;
-	std::cout << n << " Animal will be created." << std::endl;
-	Animal *animals[n];
-	for (int i = 0; i < n / 2; i++){
+	std::cout << n << " AAnimal will be created." << std::endl;
+	AAnimal *animals[n];
+	for (int i = 0; i < (n / 2); i++){
 		Dog *tmp = new Dog();
 		animals[i] = tmp;
 	}

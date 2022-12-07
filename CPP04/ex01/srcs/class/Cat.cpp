@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:12:47 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 06:10:24 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:09:49 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ Cat::Cat(const Cat &cat) : Animal(cat), _brain(new Brain(*cat._brain)) {
 
 Cat	&Cat::operator=(const Cat &cat) {
 	std::cout << "Cat affectation operator has been called." << std::endl;
-	this->_type = cat._type;
+	if (this != &cat)
+		this->_type = cat._type;
 	this->_brain = cat._brain;
 	return (*this);
 }

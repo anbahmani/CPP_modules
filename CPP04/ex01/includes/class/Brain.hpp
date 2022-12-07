@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:06:22 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 04:02:07 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:17:06 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ class Brain {
 		Brain(const Brain& brain);
 		~Brain(void);
 		Brain &operator=(const Brain& brain);
+		void setStartForget(int nb);
+		void setIndex(int nb);
 		void add_idea(std::string idea);
 		void print_ideas(void);
 };
+
+std::ostream &operator<<(std::ostream &out, const Brain &brain);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:16:20 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 06:10:47 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:59:59 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog(void) : _brain(new Brain()){
 	return ;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog), _brain(new Brain(*dog._brain)) {
+Dog::Dog(const Dog &dog) : AAnimal(dog), _brain(new Brain(*dog._brain)) {
 	std::cout << "Copy Dog constructor has been called." << std::endl;
 	this->_type = dog._type;
 	return ;

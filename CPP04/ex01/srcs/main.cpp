@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 17:04:46 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:13:09 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main(int ac, char **av) {
 
 	std::cout << "----------------Test from ex00----------------" << std::endl;
 	
+	std::cout << "-----------------------Right tests------------------------" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -50,21 +51,24 @@ int main(int ac, char **av) {
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-
-	delete i;
-	delete j;
+	
 	delete meta;
+	delete j;
+	delete i;
+	
+	std::cout << "-----------------------Wrong tests------------------------" << std::endl;
 
-	const Animal* wrong_animal = new Animal();
+	
+	const WrongAnimal* wrong_animal = new WrongAnimal();
 	const WrongAnimal* wrong_cat = new WrongCat();
-	
 	std::cout << wrong_cat->getType() << " " << std::endl;
-	
 	wrong_cat->makeSound();
 	wrong_animal->makeSound();
 
-	delete wrong_cat;
 	delete wrong_animal;
+	delete wrong_cat;	
+
+	return 0;
 
 	//Specific test for ex01
 	
@@ -75,12 +79,18 @@ int main(int ac, char **av) {
 	std::cout << n << " Animal will be created." << std::endl;
 	Animal *animals[n];
 	for (int i = 0; i < (n / 2); i++){
-		Dog *tmp = new Dog();
-		animals[i] = tmp;
+		Dog *dog_tmp = new Dog();
+		animals[i] = dog_tmp;
+		dog_tmp->add_idea(dog_tmp->getType().append(std::to_string(i)));
 	}
+	
+	
+	animals[0] = animals[1];
+	
 	for (int i = n / 2; i < n; i++){
-		Cat *tmp = new Cat();
-		animals[i] = tmp;
+		Cat *cat_tmp = new Cat();
+		animals[i] = cat_tmp;
+		cat_tmp->add_idea(cat_tmp->getType().append(std::to_string(i)));
 	}
 	
 	for (int i = 0; i < n; i++){

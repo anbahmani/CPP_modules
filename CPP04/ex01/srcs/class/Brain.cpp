@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:17:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 05:46:58 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:19:43 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,23 @@ void Brain::add_idea(std::string idea){
 	this->_ideas[this->_index++] = idea;
 }
 
-void Brain::print_ideas(void){
-	std::cout << "******All the ideas in brain******" << std::endl;
-	if (this->_start_forget) {
+void Brain::setStartForget(int nb) {
+	this->_start_forget = nb;
+}
+
+void Brain::setIndex(int nb) {
+	this->_index = nb;
+}
+
+std::ostream &operator<<(std::ostream &out, const Brain &brain) {
+	out << "******All the ideas in brain******" << std::endl;
+	if (brain._start_forget) {
 		for (unsigned int i = 0; i < NB_IDEAS_MAX; i++)
-			std::cout << this->_ideas[i] << std::endl;
+			ost << brain._ideas[i] << std::endl;
 	}
 	else {
-		for (int i = 0; i < this->_index; i++)
-			std::cout << this->_ideas[i] << std::endl;
+		for (int i = 0; i < brain._index; i++)
+			ost << brain._ideas[i] << std::endl;
 	}
+	return out;
 }
