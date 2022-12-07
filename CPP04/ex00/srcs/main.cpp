@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/10 15:04:27 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:03:17 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "WrongCat.hpp"
 
 int main(void) {
+
+	std::cout << "-----------------------Right tests------------------------" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -28,8 +30,11 @@ int main(void) {
 	delete j;
 	delete i;
 
+		std::cout << "-----------------------Wrong tests------------------------" << std::endl;
+
+	
 	const WrongAnimal* wrong_animal = new WrongAnimal();
-	const WrongCat* wrong_cat = new WrongCat();
+	const WrongAnimal* wrong_cat = new WrongCat();
 	std::cout << wrong_cat->getType() << " " << std::endl;
 	wrong_cat->makeSound();
 	wrong_animal->makeSound();
