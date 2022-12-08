@@ -1,4 +1,4 @@
-NAME		=	megaphone
+NAME		=	form
 
 CC			=	c++
 
