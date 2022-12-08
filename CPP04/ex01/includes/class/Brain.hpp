@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:06:22 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 21:17:06 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:50:09 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ class Brain {
 		Brain &operator=(const Brain& brain);
 		void setStartForget(int nb);
 		void setIndex(int nb);
+		int getStartForget(void) const;
+		int getIndex(void) const;
+		std::string *getIdeas(void) const;
 		void add_idea(std::string idea);
 		void print_ideas(void);
 };

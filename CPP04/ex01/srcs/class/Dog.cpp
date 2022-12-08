@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:16:20 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 06:10:47 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:50:54 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void Dog::add_idea(std::string idea){
 	this->_brain->add_idea(idea);
 }
 
-void Dog::print_ideas(void){
-	this->_brain->print_ideas();
+Brain *Dog::getBrain(void) {
+	return this->_brain;
 }

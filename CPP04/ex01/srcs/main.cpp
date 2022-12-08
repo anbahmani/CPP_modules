@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 21:13:09 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:02:45 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 #include <cstdlib>
+#include <sstream>
 
 int main(int ac, char **av) {
 
@@ -68,8 +69,6 @@ int main(int ac, char **av) {
 	delete wrong_animal;
 	delete wrong_cat;	
 
-	return 0;
-
 	//Specific test for ex01
 	
 	std::cout << "----------------Specific test for ex01----------------" << std::endl;
@@ -78,19 +77,21 @@ int main(int ac, char **av) {
 		n == 2147483647 ? n-- : n++;
 	std::cout << n << " Animal will be created." << std::endl;
 	Animal *animals[n];
+	std::ostringstream ss;
 	for (int i = 0; i < (n / 2); i++){
 		Dog *dog_tmp = new Dog();
 		animals[i] = dog_tmp;
-		dog_tmp->add_idea(dog_tmp->getType().append(std::to_string(i)));
+		ss << i;
+		dog_tmp->add_idea(dog_tmp->getType() + ss.str());
+		std::cout << *(dog_tmp->getBrain());
 	}
-	
-	
-	animals[0] = animals[1];
 	
 	for (int i = n / 2; i < n; i++){
 		Cat *cat_tmp = new Cat();
 		animals[i] = cat_tmp;
-		cat_tmp->add_idea(cat_tmp->getType().append(std::to_string(i)));
+		ss << i;
+		cat_tmp->add_idea(cat_tmp->getType() + ss.str());
+		std::cout << *(cat_tmp->getBrain());
 	}
 	
 	for (int i = 0; i < n; i++){
@@ -104,17 +105,23 @@ int main(int ac, char **av) {
 	Dog *dog2 = new Dog(*dog1);
 	
 	cat2->setType("test");
+	cat2->add_idea("salut");
 	
 	std::cout << "cat1 has type " << cat1->getType() << std::endl;
 	std::cout << "cat2 has type " << cat2->getType() << std::endl;
+	std::cout << *(cat1->getBrain())<< std::endl;
+	std::cout << *(cat2->getBrain()) << std::endl;
 
 	delete cat1;
 	delete cat2;
 
 	dog2->setType("test");
+	dog2->add_idea("salut");
 	
 	std::cout << "dog1 has type " << dog1->getType() << std::endl;
 	std::cout << "dog2 has type " << dog2->getType() << std::endl;
+	std::cout << *(dog1->getBrain()) << std::endl;
+	std::cout << *(dog2->getBrain()) << std::endl;
 
 	delete dog1;
 	delete dog2;

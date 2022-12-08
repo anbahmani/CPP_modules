@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:17:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 21:19:43 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:01:33 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,30 @@ void Brain::setIndex(int nb) {
 	this->_index = nb;
 }
 
+int Brain::getStartForget(void) const {
+	return this->_start_forget;
+}
+
+int Brain::getIndex(void) const {
+	return this->_index;
+}
+
+std::string *Brain::getIdeas(void) const {
+	return this->_ideas;
+}
+
 std::ostream &operator<<(std::ostream &out, const Brain &brain) {
 	out << "******All the ideas in brain******" << std::endl;
-	if (brain._start_forget) {
+	std::string *ideas = brain.getIdeas();
+	if (brain.getStartForget()) {
 		for (unsigned int i = 0; i < NB_IDEAS_MAX; i++)
-			ost << brain._ideas[i] << std::endl;
+			out << ideas[i] << std::endl;
 	}
 	else {
-		for (int i = 0; i < brain._index; i++)
-			ost << brain._ideas[i] << std::endl;
+		for (int i = 0; i < brain.getIndex(); i++)
+			out << ideas[i] << std::endl;
 	}
+	if (!brain.getIndex())
+		out << "No idea in the Brain" << std::endl;
 	return out;
 }

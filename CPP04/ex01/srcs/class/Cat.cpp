@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:12:47 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 21:09:49 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:50:41 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void Cat::add_idea(std::string idea){
 	this->_brain->add_idea(idea);
 }
 
-void Cat::print_ideas(void){
-	this->_brain->print_ideas();
+Brain *Cat::getBrain(void) {
+	return this->_brain;
 }

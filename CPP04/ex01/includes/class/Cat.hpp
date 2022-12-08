@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 08:53:09 by abahmani          #+#    #+#             */
-/*   Updated: 2022/11/20 04:07:30 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:50:44 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Cat : virtual public Animal {
 		Cat &operator=(const Cat &cat);
 		virtual void makeSound(void) const;
 		void add_idea(std::string idea);
-		void print_ideas(void);
+		Brain *getBrain(void);
 };
 
 #endif
