@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:52:46 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/08 21:03:26 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/09 09:44:28 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,16 @@ int main(void){
 	}
 
 	try {
-		Bureaucrat b11("Boss", 90);
-		Form f4("Random form", 100, 100);
+		Bureaucrat b11("Random", 50);
+		Form f4("High form", 5, 5);
+		f4.beSigned(b11);
+	}catch (std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
+	
+	try {
+		Bureaucrat b11("Employee", 140);
+		Form f4("Middle form", 75, 75);
 		f4.beSigned(b11);
 	}catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
