@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:10:29 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 05:59:31 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 06:19:40 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ class Form {
 
 		class GradeTooHighException : public std::exception{
 				const char *what() const throw();
-			};
+		};
 
 		class GradeTooLowException : public std::exception{
 			const char *what() const throw();
 		};
+		
 		class FormNotSigned : public std::exception{
 			const char *what() const throw();
 		};
 };
 
 std::ostream &operator<<(std::ostream &out, Form &form);
-
 #endif

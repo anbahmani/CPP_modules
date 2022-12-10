@@ -6,13 +6,11 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:52:46 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 05:37:15 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 06:18:14 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Includes.hpp"
 
 int main(void){
 

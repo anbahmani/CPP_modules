@@ -6,15 +6,13 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:59:44 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 05:58:20 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 06:15:59 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <iostream>
-# include <exception>
 # include "Includes.hpp"
 
 class Bureaucrat {
