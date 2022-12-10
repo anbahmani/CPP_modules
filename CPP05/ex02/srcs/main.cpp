@@ -6,16 +6,18 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:52:46 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/09 10:07:12 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:37:15 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void){
 
 	std::cout << "----------------------------------Tests from ex00----------------------------------" << std::endl;
+	
 	try {
 		Bureaucrat b1;
 		Bureaucrat b2(b1);
@@ -121,7 +123,38 @@ int main(void){
 
 	std::cout << "----------------------------------New tests----------------------------------" << std::endl;
 
+	try {
+		Bureaucrat b12("Boss", 1);
+		RobotomyRequestForm r1(b12.getName());
+		r1.execute(b12);
+	}catch(std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
 
+	try {
+		Bureaucrat b13("Employee", 150);
+		RobotomyRequestForm r1(b13.getName());
+		r1.execute(b13);
+	}catch(std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
+
+	try {
+		Bureaucrat b14("Middle", 45);
+		RobotomyRequestForm r1(b14.getName());
+		r1.execute(b14);
+	}catch(std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
+
+	try {
+		Bureaucrat b14("Middle", 45);
+		RobotomyRequestForm r1(b14.getName());
+		r1.beSigned(b14);
+		b14.executeForm(r1);
+	}catch(std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
 
 	return (0);
 }

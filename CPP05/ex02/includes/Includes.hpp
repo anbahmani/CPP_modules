@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   Includes.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 12:26:57 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 06:02:10 by abahmani         ###   ########.fr       */
+/*   Created: 2022/12/10 05:56:29 by abahmani          #+#    #+#             */
+/*   Updated: 2022/12/10 06:02:46 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIAL_PARDON_FORM_HPP
-# define PRESIDENTIAL_PARDON_FORM_HPP
+#ifndef INCLUDES_HPP
+# define INCLUDES_HPP
 
-# include "Includes.hpp"
-
-class PresidentialPardonForm {
-	
-	private :
-};
+# include "Form.hpp"
+# include "Bureaucrat.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include <time.h>
+# include <cstdlib>
+# include <unistd.h>
+# include <iostream>
 
 #endif

@@ -6,15 +6,14 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:10:29 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/09 12:44:13 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:59:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include <iostream>
-# include "Bureaucrat.hpp"
+# include "Includes.hpp"
 
 class Form {
 	
@@ -37,7 +36,8 @@ class Form {
 		int getGradeSign(void) const;
 		int getGradeExecute(void) const;
 		void beSigned(Bureaucrat &bureaucrat);
-		virtual void execute(Bureaucrat const & executor) const = 0;
+		virtual void execute(Bureaucrat const &bureaucrat) const = 0;
+		bool checkRequirements(Bureaucrat const &bureaucrat) const;
 
 		class GradeTooHighException : public std::exception{
 				const char *what() const throw();
@@ -46,7 +46,9 @@ class Form {
 		class GradeTooLowException : public std::exception{
 			const char *what() const throw();
 		};
-
+		class FormNotSigned : public std::exception{
+			const char *what() const throw();
+		};
 };
 
 std::ostream &operator<<(std::ostream &out, Form &form);

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:10:34 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/08 19:57:42 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:47:25 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) {
 	return ;
 }
 
-std::string Bureaucrat::getName(void) {
+std::string Bureaucrat::getName(void) const {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade(void) {
+int Bureaucrat::getGrade(void) const {
 	return this->_grade;
 }
 
@@ -72,6 +72,10 @@ void Bureaucrat::downgrade(void) {
 		this->_grade++;
 		std::cout << this->_name << "has been downgraded from " << this->_grade - 1 << " to " << this->_grade<<std::endl;
 	}
+}
+
+void Bureaucrat::executeForm(Form const &form) {
+	form.execute(*this);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

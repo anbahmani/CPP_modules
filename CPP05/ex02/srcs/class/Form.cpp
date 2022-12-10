@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:19:22 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/09 09:50:18 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 05:31:11 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,20 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
 		this->_signed = true;
 		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
 	}
+}
+
+const char *Form::FormNotSigned::what() const throw() {
+	return ("The form is not signed.");
+}
+
+bool Form::checkRequirements(Bureaucrat const &bureaucrat) const {
+	if (this->getGradeExecute() < bureaucrat.getGrade()){
+		throw Form::GradeTooLowException();
+		return(false);
+	}
+	if (!this->_signed){
+		throw Form::FormNotSigned();
+		return (false);
+	}
+	return (true);
 }
