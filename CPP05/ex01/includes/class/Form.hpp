@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:10:29 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/08 20:41:42 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:32:33 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Bureaucrat.hpp"
+# include <exception>
+
+class Bureaucrat;
 
 class Form {
 	private :
 	std::string const _name;
 	bool _signed;
-	int _grade_sign;
-	int _grade_execute;
+	int const _grade_sign;
+	int const _grade_execute;
 
 	public :
 	Form(void);
@@ -46,5 +48,6 @@ class Form {
 };
 
 std::ostream &operator<<(std::ostream &out, Form &form);
+# include "Bureaucrat.hpp"
 
 #endif

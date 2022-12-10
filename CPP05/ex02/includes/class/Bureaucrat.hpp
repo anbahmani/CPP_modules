@@ -6,19 +6,19 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:59:44 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 06:15:59 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:56:07 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include "Includes.hpp"
+class Form;
 
 class Bureaucrat {
 	
 	private :
-		std::string _name;
+		std::string const _name;
 		int	_grade;
 
 		
@@ -33,6 +33,7 @@ class Bureaucrat {
 		void upgrade(void);
 		void downgrade(void);
 		void executeForm(Form const & form);
+		void signForm(Form &form);
 		
 		class GradeTooHighException : public std::exception{
 			const char *what() const throw();

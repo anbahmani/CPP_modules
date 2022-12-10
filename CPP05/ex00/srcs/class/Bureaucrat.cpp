@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:10:34 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/08 20:25:14 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:49:19 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ Bureaucrat::~Bureaucrat(void) {
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat& bureaucrat) {
 	std::cout << "Bureaucrat assignation operator has been called." << std::endl;
-	this->_name = bureaucrat._name;
 	this->_grade = bureaucrat._grade;
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	std::cout << "bureaucrat name and grade based constructor has been called to create : " << this->_name << std::endl;
-	this->_name = name;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
@@ -48,11 +46,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) {
 	return ;
 }
 
-std::string Bureaucrat::getName(void) {
+std::string Bureaucrat::getName(void) const {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade(void) {
+int Bureaucrat::getGrade(void) const {
 	return this->_grade;
 }
 

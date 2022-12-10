@@ -6,16 +6,18 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:52:46 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/09 09:44:28 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:45:25 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main(void){
 
 	std::cout << "----------------------------------Tests from ex00----------------------------------" << std::endl;
+	
+	std::cout << std::endl;
+	
 	try {
 		Bureaucrat b1;
 		Bureaucrat b2(b1);
@@ -27,6 +29,8 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	try {
 		Bureaucrat b3("Boss", 1);
 		std::cout << b3;
@@ -35,12 +39,16 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 	
+	std::cout << std::endl;
+	
 	try {
 		Bureaucrat b4("Employee", 150);
 		std::cout << b4;
 	}catch (std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
+	
+	std::cout << std::endl;
 	
 	try {
 		Bureaucrat b5("Middle",75);
@@ -53,6 +61,8 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 	
+	std::cout << std::endl;
+	
 	try {
 		Bureaucrat b6("Wrong low grade", 151);
 		std::cout << b6;
@@ -60,12 +70,16 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 	
+	std::cout << std::endl;
+	
 	try {
 		Bureaucrat b7("Wrong high grade", 0);
 		std::cout << b7;
 	}catch (std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
+	
+	std::cout << std::endl;
 	
 	std::cout << "----------------------------------New tests----------------------------------" << std::endl;
 	
@@ -77,6 +91,8 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	try {
 		Bureaucrat b9("Employee", 150);
 		Form f2("Low form", 150, 150);
@@ -84,6 +100,8 @@ int main(void){
 	}catch (std::exception &e){
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
 
 	try {
 		Bureaucrat b10("Middle", 75);
@@ -93,29 +111,23 @@ int main(void){
 		std::cerr << e.what() << std::endl;
 	}
 
-	try {
-		Bureaucrat b11("Random", 90);
-		Form f4("Random form", 100, 100);
-		f4.beSigned(b11);
-	}catch (std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << std::endl;
 
-	try {
-		Bureaucrat b11("Random", 50);
-		Form f4("High form", 5, 5);
-		f4.beSigned(b11);
-	}catch (std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
-	
-	try {
-		Bureaucrat b11("Employee", 140);
-		Form f4("Middle form", 75, 75);
-		f4.beSigned(b11);
-	}catch (std::exception &e){
-		std::cerr << e.what() << std::endl;
-	}
+	Bureaucrat b11("Random", 90);
+	Form f4("Random form", 100, 100);
+	b11.signForm(f4);
+
+	std::cout << std::endl;
+
+	Bureaucrat b12("Employee", 140);
+	Form f5("Middle form", 75, 75);
+	b12.signForm(f5);
+
+	std::cout << std::endl;
+
+	Bureaucrat b13("Random", 50);
+	Form f6("High form", 5, 5);
+	b13.signForm(f6);
 	
 	return (0);
 }

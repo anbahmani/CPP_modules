@@ -6,14 +6,22 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:10:29 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 06:19:40 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:58:05 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include "Includes.hpp"
+# include <time.h>
+# include <cstdlib>
+# include <unistd.h>
+# include <iostream>
+# include <exception>
+# include <fstream>
+# include <string>
+
+class Bureaucrat;
 
 class Form {
 	
@@ -21,8 +29,8 @@ class Form {
 
 		std::string const _name;
 		bool _signed;
-		int _grade_sign;
-		int _grade_execute;
+		int const _grade_sign;
+		int const _grade_execute;
 
 	public :
 	
@@ -53,4 +61,10 @@ class Form {
 };
 
 std::ostream &operator<<(std::ostream &out, Form &form);
+
+# include "Bureaucrat.hpp"
+# include "Form.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
 #endif

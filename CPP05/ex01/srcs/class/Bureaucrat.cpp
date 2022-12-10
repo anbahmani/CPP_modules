@@ -6,11 +6,11 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:10:34 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/08 19:57:42 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:33:22 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("unname"), _grade(150) {
 	std::cout << "Bureaucrat Default constructor has been called." << std::endl;
@@ -30,13 +30,11 @@ Bureaucrat::~Bureaucrat(void) {
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat& bureaucrat) {
 	std::cout << "Bureaucrat assignation operator has been called." << std::endl;
-	this->_name = bureaucrat._name;
 	this->_grade = bureaucrat._grade;
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) {
-	this->_name = name;
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
@@ -48,11 +46,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) {
 	return ;
 }
 
-std::string Bureaucrat::getName(void) {
+std::string Bureaucrat::getName(void) const {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade(void) {
+int Bureaucrat::getGrade(void) const {
 	return this->_grade;
 }
 
@@ -80,6 +78,16 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Grade too low");
+}
+
+void Bureaucrat::signForm(Form &form) {
+	try{
+		form.beSigned(*this);
+	}catch(const std::exception &e){
+		std::cerr << this->_name <<" couldn\'t sign "<< form.getName() << "because his grade is too low." << std::endl;
+		return ;
+	}
+	std::cout << this->_name << " signed " << form.getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &bureaucrat) {

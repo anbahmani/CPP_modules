@@ -6,11 +6,11 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:46:05 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/10 06:10:27 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/10 09:21:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "RobotomyRequestForm.hpp"
+#include "Form.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void) : Form("unnamed", 72, 45), _target("unnamed"){
 	std::cout << "RobotomyRequestForm Default constructor has been called." << std::endl;
