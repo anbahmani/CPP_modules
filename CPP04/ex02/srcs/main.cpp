@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 07:47:54 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/07 20:28:10 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:43:08 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,17 @@ int main(int ac, char **av) {
 		n == 2147483647 ? n-- : n++;
 	std::cout << n << " AAnimal will be created." << std::endl;
 	AAnimal *animals[n];
-	for (int i = 0; i < (n / 2); i++){
+	for (int i = 0; i < (n / 2); i++) {
 		Dog *tmp = new Dog();
 		animals[i] = tmp;
 	}
-	for (int i = n / 2; i < n; i++){
+	for (int i = n / 2; i < n; i++) {
 		Cat *tmp = new Cat();
 		animals[i] = tmp;
 	}
-	
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		delete animals[i];
 	}
-
 
 	Cat *cat1 = new Cat();
 	Cat *cat2 = new Cat(*cat1);

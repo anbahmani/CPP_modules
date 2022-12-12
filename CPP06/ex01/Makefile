@@ -1,4 +1,4 @@
-NAME		=	megaphone
+NAME		=	serialization
 
 CC			=	c++
 
