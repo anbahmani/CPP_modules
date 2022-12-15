@@ -38,9 +38,26 @@ void check_input_type(Type type, std::string str){
 	(occ_p == 1 && !type.is_char) ? type.point == true : type.point == false;
 	(occ_f == 1 && str[str.length() - 1] == 'f') ? type.f == true : type.f == false;
 
-	(!type.f && !type.point && !type.is_char && !valid_char) ? type.is_int = true : type.is_int = false;
-	(type.f && type.point && valid_char) ? type.is_float = true : type.is_float = true;
-	(type.point && !type.f && valid_char) ? type.is_double = true : type.is_double = false;
+	(!type.f && !type.point && valid_char) ? type.is_int = true : type.is_int = false;
+	(type.f && type.point && valid_char && str.length() != 3) ? type.is_float = true : type.is_float = true;
+	(type.point && !type.f && valid_char && str.length() != 2) ? type.is_double = true : type.is_double = false;
+}
+
+void transform_input(Type type, std::string str){
+	if (type.is_char){	//change char type
+		str.pop_back();
+		str.erase(str.begin());
+	} else if (type.is_double){	//change double type
+		if (str[0] == '.')
+			str = std::string("0") + str;
+		else if (str[str.length() - 1] == '.')
+			str.push_back('0');
+	} else if (type.is_float){		//change float type
+		if (str[0] == '.')
+			str = std::string("0") + str;
+		else if (str[str.length() - 2] == '.')
+			str.insert(str.length() - 2, std::string ("0"));
+	}
 }
 
 int main(int ac, char **av){
