@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:09:06 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/14 17:06:43 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:22:07 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned int count_occurrences(std::string str, char c){
 
 bool check_valid_char(std::string str){
 	for(int i = 0; i < str.length(); i++){
-		if (std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f')
+		if (std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != '+' && str[i] != '-')
 			return false;
 	}
 	return true;
@@ -43,20 +43,44 @@ void check_input_type(Type type, std::string str){
 	(type.point && !type.f && valid_char && str.length() != 2) ? type.is_double = true : type.is_double = false;
 }
 
-void transform_input(Type type, std::string str){
-	if (type.is_char){	//change char type
+void transform_input(Type type, std::string str, Input input){
+	if (type.is_char){			//change char type
 		str.pop_back();
 		str.erase(str.begin());
+		input.c = str[1];
 	} else if (type.is_double){	//change double type
 		if (str[0] == '.')
 			str = std::string("0") + str;
 		else if (str[str.length() - 1] == '.')
 			str.push_back('0');
-	} else if (type.is_float){		//change float type
+		input.d = 
+	} else if (type.is_float){	//change float type
 		if (str[0] == '.')
 			str = std::string("0") + str;
 		else if (str[str.length() - 2] == '.')
 			str.insert(str.length() - 2, std::string ("0"));
+	}
+}
+
+void exception(std::string str){
+	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff" || str == "-inf" || str == "+inf" || str == "+inff" || str == "-inff") {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		if (str == "nan" || str == "nanf")
+		{
+			std::cout << "float: nanf" << std::endl;
+			std::cout << "double: nan" << std::endl;
+		}
+		else if (str == "+inf" || str == "inf" || str == "inff" || str == "+inff")
+		{
+			std::cout << "float: inff" << std::endl;
+			std::cout << "double: inf" << std::endl;
+		}
+		else if (str == "-inf" || str == "-inff")
+		{
+			std::cout << "float: -inff" << std::endl;
+			std::cout << "double: -inf" << std::endl;
+		}
 	}
 }
 
@@ -68,9 +92,12 @@ int main(int ac, char **av){
 
 	std::string str;
 	str = av[1];
-	Type type;
-    //double convert = atof(av[1]);
 
+	exception(str);
+	
+	Type type;
+	Input input;
+    //double convert = atof(av[1]);
     std::cout << "char: ";
     if (convert > CHAR_MAX || convert < CHAR_MIN || !std::isfinite(convert))
         std::cout << "impossible" << std::endl;

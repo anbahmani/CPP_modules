@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:09:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/13 21:47:49 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:03:47 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,13 @@ typedef struct Type {
 	bool is_double;
 	bool is_int;
 } Type;
+
+typedef struct Input {
+	std::string str;
+	char c;
+	int i;
+	float f;
+	double d;
+} Input;
 
 #endif
