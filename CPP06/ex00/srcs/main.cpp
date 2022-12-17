@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 19:09:06 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/17 02:48:25 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/17 04:40:26 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned int count_occurrences(std::string str, char c){
 
 bool check_valid_char(std::string str){
 	for(unsigned long i = 0; i < str.length(); i++){
-		if (std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != '+' && str[i] != '-')
+		if (!std::isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != '+' && str[i] != '-')
 			return false;
 	}
 	return true;
@@ -34,13 +34,15 @@ void check_input_type(Type *type, std::string str){
 	unsigned int occ_p = count_occurrences(str, '.');
 	bool valid_char = check_valid_char(str);
 
+	(!valid_char && str.length() > 1) ? type->impossible = true : type->impossible = false;
 	(str.length() == 1) ? type->is_char = true : type->is_char = false;
 	(occ_p == 1 && !type->is_char) ? type->point = true : type->point = false;
 	(occ_f == 1 && str[str.length() - 1] == 'f' && !type->is_char) ? type->f = true : type->f = false;
-
+	if (!type->is_char && occ_f == 1 && !type->f) {type->impossible = true;}
 	(!type->f && !type->point && valid_char && !type->is_char) ? type->is_int = true : type->is_int = false;
 	(type->f && type->point && valid_char) ? type->is_float = true : type->is_float = true;
 	(type->point && !type->f && valid_char) ? type->is_double = true : type->is_double = false;
+	if (count_occurrences(str, '-') > 1 || count_occurrences(str, '+') > 1) {type->impossible = true;}
 }
 
 void transform_input(Type type, std::string str){
@@ -165,6 +167,13 @@ void double_conversion(std::string str){
 	std::cout << std::endl;
 }
 
+void impossible(void) {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
 int main(int ac, char **av){
 	if (ac != 2){
         std::cout << "The number of argument is incorrect." << std::endl;
@@ -178,6 +187,10 @@ int main(int ac, char **av){
 	Type type;
     
 	check_input_type(&type, str);
+	if (type.impossible) {
+		impossible();
+		return (0);
+	}
 	transform_input(type, str);
 	if (type.is_char)
 		char_conversion(str);

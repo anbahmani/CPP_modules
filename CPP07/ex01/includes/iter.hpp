@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalaire.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:09:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/17 04:26:56 by abahmani         ###   ########.fr       */
+/*   Created: 2022/12/17 07:36:08 by abahmani          #+#    #+#             */
+/*   Updated: 2022/12/17 11:51:12 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAIRE_HPP
-# define SCALAIRE_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <math.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <string>
-#include <cstring>
-#include <cctype>
+# include <iostream>
 
-typedef struct Type {
-	bool point;
-	bool f;
-	bool is_char;
-	bool is_float;
-	bool is_double;
-	bool is_int;
-	bool impossible;
-} Type;
+template<typename T>
+void iter(T *arr_ptr, unsigned int length, void (*f)(T &param)){
+	for (unsigned int i = 0; i < length; i++)
+		f(arr_ptr[i]);
+}
+
+template<typename T>
+void printElem(T &elem) {
+	std::cout << elem << std::endl;
+}
 
 #endif

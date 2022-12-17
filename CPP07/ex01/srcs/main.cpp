@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scalaire.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:09:15 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/17 04:26:56 by abahmani         ###   ########.fr       */
+/*   Created: 2022/12/17 07:36:11 by abahmani          #+#    #+#             */
+/*   Updated: 2022/12/17 16:42:09 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAIRE_HPP
-# define SCALAIRE_HPP
+#include "iter.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <math.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <string>
-#include <cstring>
-#include <cctype>
+int main (void) {
+	std::string str_tab[] = {"salut", "bonjour", "hello"};
+	int int_tab[] = {1 , 55, -77, 0, 42};
 
-typedef struct Type {
-	bool point;
-	bool f;
-	bool is_char;
-	bool is_float;
-	bool is_double;
-	bool is_int;
-	bool impossible;
-} Type;
-
-#endif
+	std::cout << "**************String test**************" << std::endl;
+	iter(str_tab, 3, printElem);
+	std::cout << "**************Int test**************" << std::endl;
+	iter(int_tab, 5, printElem);
+	
+}
