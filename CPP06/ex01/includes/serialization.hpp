@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:12:27 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/12 13:26:48 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/17 02:59:28 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SERIALIZATION_HPP
 
 # include <stdint.h>
+# include <iostream>
 
 typedef struct Data {
 	int i1;
