@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:20:28 by abahmani          #+#    #+#             */
-/*   Updated: 2022/12/12 15:15:26 by abahmani         ###   ########.fr       */
+/*   Updated: 2022/12/17 02:50:47 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Data* deserialize(uintptr_t raw) {
 	return reinterpret_cast<Data *>(raw);
 }
 
-int main(int ac,char **av)
-{
+int main(int ac,char **av) {
 	
 }
